@@ -30,12 +30,10 @@ def oracle(size: int, period: int = None) -> Tuple[Gate, int]:
 
     # Randomly flip qubits for further obfuscation
     for i in range(size):
-        if i % 3 == 0:
+        if random.choice([0, 1]):
             oracle.x(output_reg[i])
 
-    print(oracle.draw())
-
-    return oracle.to_gate(label="oracle"), period 
+    return oracle.to_gate(label="Oracle"), period
 
 
 def test_oracle():
